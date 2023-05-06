@@ -1,7 +1,7 @@
 interface PersonProps {
   id: number;
-  name: string;
-  category: string;
+  name?: string;
+  category?: string;
 }
 
 interface Props {
@@ -10,14 +10,17 @@ interface Props {
 }
 
 const FamilyList = ({ person, onDelete }: Props) => {
-  if (person.length === 0) return null;
+  const [{ id, ...rest }] = person;
+
+  if (person.length === 0 || Object.values(rest).every(value => value === ""))
+    return null;
   return (
     <table className="table table-striped w-50">
       <thead>
         <tr>
-          <th>ID</th>
           <th>Name</th>
           <th>Category</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

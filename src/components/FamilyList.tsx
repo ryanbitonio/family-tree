@@ -15,31 +15,33 @@ const FamilyList = ({ person, onDelete }: Props) => {
   if (person.length === 0 || Object.values(rest).every(value => value === ""))
     return null;
   return (
-    <table className="table table-striped w-50">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Category</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {person.map(details => (
-          <tr key={details.id}>
-            <td>{details.name}</td>
-            <td>{details.category}</td>
-            <td>
-              <button
-                onClick={() => onDelete(details.id)}
-                className="btn btn-danger"
-              >
-                Delete
-              </button>
-            </td>
+    <div className="col-sm-4">
+      <table className="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Action</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {person.map(details => (
+            <tr key={details.id}>
+              <td>{details.name}</td>
+              <td>{details.category}</td>
+              <td>
+                <button
+                  onClick={() => onDelete(details.id)}
+                  className="btn btn-danger"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

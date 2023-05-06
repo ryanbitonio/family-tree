@@ -1,17 +1,21 @@
+import categories from "../categories";
+
 interface Props {
-  options: string[];
   onSelectCategory: (category: string) => void;
 }
 
-const FamilyFilter = ({ options, onSelectCategory }: Props) => {
+const FamilyFilter = ({ onSelectCategory }: Props) => {
   return (
     <div className="col-sm-4">
       <select
         onChange={e => onSelectCategory(e.target.value)}
-        className="form-select "
+        className="form-select"
       >
-        {options.map(option => (
-          <option value={option}>{option}</option>
+        <option value="">All categories</option>
+        {categories.map(category => (
+          <option key={category} value={category}>
+            {category}
+          </option>
         ))}
       </select>
     </div>

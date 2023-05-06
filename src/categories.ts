@@ -1,3 +1,3 @@
-const categories = ["All categories", "Father", "Mother", "Son"] as const;
+const categories = ["Father", "Mother", "Son"] as const;
 
 export default categories;

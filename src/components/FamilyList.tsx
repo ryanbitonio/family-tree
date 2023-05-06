@@ -10,10 +10,20 @@ interface Props {
 }
 
 const FamilyList = ({ person, onDelete }: Props) => {
-  const [{ id, ...rest }] = person;
-
-  if (person.length === 0 || Object.values(rest).every(value => value === ""))
-    return null;
+  if (person.length === 0)
+    return (
+      <div className="col-sm-4">
+        <table className="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    );
   return (
     <div className="col-sm-4">
       <table className="table table-striped table-bordered">

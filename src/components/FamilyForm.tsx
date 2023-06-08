@@ -11,8 +11,8 @@ const schema = z.object({
   name: z
     .string()
     .min(1, { message: "Required" })
-    .min(3, { message: "Product field must be at least 3 characters" })
-    .max(16, { message: "Product field must be 16 characters long" }),
+    .min(3, { message: "Name field must be at least 3 characters" })
+    .max(16, { message: "Name field must be 16 characters long" }),
   category: z.enum(categories, {
     errorMap: () => ({ message: "Required" }),
   }),
